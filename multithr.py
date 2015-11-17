@@ -10,11 +10,13 @@ import time
 
 class MyThread(threading.Thread):
     def run(self):
-            for i in range(3):
-                time.sleep(1)
-                msg = "I'm " + self.name + " @ " + str(i) + '\n'
-                print msg
-                
+        global num
+        for i in range(3):
+            time.sleep(1)
+            num += 1
+            msg = self.name + " set num to " + str(num)
+            print msg
+num = 0                
 def test():
     for i in range(5):
         t = MyThread()
