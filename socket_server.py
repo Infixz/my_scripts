@@ -14,6 +14,7 @@ conn,addr = s.accept()
 print 'Connect by ',addr
 while 1:
 	data = conn.recv(4096)
+	print '\n recv = ',dataS
 	if not data:break
 	conn.sendall(data.upper())
 conn.close()
