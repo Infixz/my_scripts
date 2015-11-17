@@ -15,5 +15,5 @@ print 'Connect by ',addr
 while 1:
 	data = conn.recv(4096)
 	if not data:break
-	conn.sendall(data)
+	conn.sendall(data.upper())
 conn.close()
