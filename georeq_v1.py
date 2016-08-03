@@ -58,11 +58,11 @@ def crawler(url,param_dict):
 		duration = result['result']['routes'][0]['duration'] / 3600
 		return (distance,duration)
 	else:
-		return 'error between the if of crawler'
+		return 'error between the "if"" of crawler'
 		
 	
 def xls_writer(sheet,plat_table):
-	"""将查询结果写成方阵存入xls文件"""
+	"""将查询结果写成 方阵 存入xls文件"""
 	nVec = len(plat_table)
 	for y in range(nVec):
 		for x in range(nVec):
@@ -71,8 +71,7 @@ def xls_writer(sheet,plat_table):
 def xls_saver(filename,dista_table,dur_table):
 	"""将结果写入新建名称为每列第一个字符串的xls文件,
 	sheet名称将分别为distance和duration，
-	并在table内体现出对称矩阵形式利于matlab进行处理。
-	"""
+	并在table内体现出对称矩阵形式利于matlab进行处理。"""
 	xls_handler = xlwt.Workbook(encoding='utf-8')
 	sheet1 = xls_handler.add_sheet('distance')
 	sheet2 = xls_handler.add_sheet('duration')
