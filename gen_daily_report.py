@@ -29,7 +29,6 @@ class Xls_generator(object):
             except AttributeError, e:
                 pass
             self._sheet1.write(col_no, self._position[key]-1, content)
-        print 'write one row'
 
     def data_to_xls(self):
         for i in range(self._row_size):
@@ -47,21 +46,21 @@ if __name__ == '__main__':
     data = resp['data']
     # position_set
     content_position = {
-        'Id':1,
-        'TroubleStatus':2,
-        'CarSignedNo':3,
-        'PlateNo':4,
-        'MobilePhoneNo':5,
-        'LineName':6,
-        'LineProperty':7,
-        'ReportContent':8,
-        'TroubleType':9,
-        'CreateTime':10,
-        'Register':11,
-        'Handler':12,
-        'Exec_time':13,
-        'Frequency':14,
-        'LastTime':15
+        'Id': 1,
+        'TroubleStatus': 2,
+        'CarSignedNo': 3,
+        'PlateNo': 4,
+        'MobilePhoneNo': 5,
+        'LineName': 6,
+        'LineProperty': 7,
+        'ReportContent': 8,
+        'TroubleType': 9,
+        'CreateTime': 10,
+        'Register': 11,
+        'Handler': 12,
+        'Exec_time': 13,
+        'Frequency': 14,
+        'LastTime': 15
     }
     # headline_set
     headline_name = [
