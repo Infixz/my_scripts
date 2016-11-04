@@ -42,7 +42,8 @@ class Xls_generator(object):
 if __name__ == '__main__':
     import requests
     # sample data
-    resp = requests.get(r'http://115.28.79.197:9090/TroubleReport').json()
+    resp = requests.get(r'http://139.129.201.205:9090/TroubleReport/xls').json()
+
     data = resp['data']
     # position_set
     content_position = {
@@ -80,7 +81,11 @@ if __name__ == '__main__':
         '延误次数',
         '延误总时长'
     ]
+    def replace_field(data_list):
+        set_conv = {2000: u"堵车", 2100: u"异常天气", 2500: u"车辆故障", 2800: u"缓行"}
+        return map(lambda x: {k: set_conv[v] if v in [2000, 2100, 2500, 2800] else v for k,v in x.items()}, data_list)
+    
     # gen a "TroubleReport" instance
-    trouble_report_xls = Xls_generator('trouble_report_date-x-x', 'date_of_xx', headline_name, content_position, data)
+    trouble_report_xls = Xls_generator('trouble_report_date-x-x', 'date_of_xx', headline_name, content_position, replace_field(data))
     trouble_report_xls.export()
     
